@@ -2,28 +2,153 @@
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    
 }
 body{
-  background: #e5e4e2 ;
-}
+    width: 100%;
+    height: 100%;
+    /* Add your background pattern here */
+    --sz: 15px;
+    --c0: #000;
+    --c1: #c71175;
+    --ts: 50% / calc(var(--sz) * 8) calc(var(--sz) * 16);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    --dot: var(--c1) 0 calc(var(--sz) * 0.78),
+      #fff0 calc(calc(var(--sz) * 0.78) + 1px) 100%;
+    --dot2: radial-gradient(circle at 90% 0%, var(--dot)) var(--ts),
+      radial-gradient(circle at 65% 0%, var(--dot)) var(--ts),
+      radial-gradient(circle at 40% 0%, var(--dot)) var(--ts),
+      radial-gradient(circle at 15% 0%, var(--dot)) var(--ts);
+    --cg1: conic-gradient(from -90deg at 5% 51%, var(--c0) 0 90deg, #fff0 0 100%)
+      var(--ts);
+    --cg2: conic-gradient(from -90deg at 25% 50%, var(--c1) 0 90deg, #fff0 0 100%)
+      var(--ts);
+    --cg3: conic-gradient(
+        from -90deg at 30% 38.5%,
+        var(--c0) 0 90deg,
+        #fff0 0 100%
+      )
+      var(--ts);
+    --cg4: conic-gradient(
+        from -90deg at 50% 37.5%,
+        var(--c1) 0 90deg,
+        #fff0 0 100%
+      )
+      var(--ts);
+    --cg5: conic-gradient(from -90deg at 55% 26%, var(--c0) 0 90deg, #fff0 0 100%)
+      var(--ts);
+    --cg6: conic-gradient(from -90deg at 75% 25%, var(--c1) 0 90deg, #fff0 0 100%)
+      var(--ts);
+    --cg7: conic-gradient(
+        from -90deg at 80% 13.5%,
+        var(--c0) 0 90deg,
+        #fff0 0 100%
+      )
+      var(--ts);
+    --cg8: conic-gradient(
+        from -90deg at 100% 12.5%,
+        var(--c1) 0 90deg,
+        #fff0 0 100%
+      )
+      var(--ts);
+  
+    background: var(--dot2), var(--dot2),
+      radial-gradient(circle at 90% 100%, var(--dot)) var(--ts),
+      radial-gradient(circle at 65% 100%, var(--dot)) var(--ts),
+      radial-gradient(circle at 40% 100%, var(--dot)) var(--ts),
+      radial-gradient(circle at 15% 100%, var(--dot)) var(--ts),
+      radial-gradient(circle at 90% 12.5%, var(--dot)) var(--ts),
+      radial-gradient(circle at 65% 25%, var(--dot)) var(--ts),
+      radial-gradient(circle at 40% 37.5%, var(--dot)) var(--ts),
+      radial-gradient(circle at 15% 50%, var(--dot)) var(--ts), var(--cg1),
+      var(--cg1), var(--cg2), var(--cg2), var(--cg3), var(--cg3), var(--cg4),
+      var(--cg4), var(--cg5), var(--cg5), var(--cg6), var(--cg6), var(--cg7),
+      var(--cg7), var(--cg8), var(--cg8),
+      linear-gradient(-45deg, #fff0 0 32.25%, #0002 50%, #000 77.5%) var(--ts),
+      linear-gradient(-45deg, #fff0 0 32.25%, #000 60%) var(--ts),
+      repeating-linear-gradient(90deg, var(--c0) 0 5%, var(--c1) 0 25%) var(--ts);
+  }
 
 .navbar{
     background-color: #181717;
     padding: 20px;
     text-align: right;
 }
-#cancelQuiz{
-    color: white;
-    font-size: 20px;
-    padding: 10px;
-    background-color: rgba(255, 0, 0, 0.688);
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
+.Btn {
+  position: relative;
+  width: 150px;
+  height: 55px;
+  border-radius: 45px;
+  border: none;
+  background-color: rgb(255, 95, 95);
+  color: white;
+  font-size: 20px;
+  box-shadow: 0px 10px 10px rgb(253, 187, 187) inset,
+  0px 5px 10px rgba(5, 5, 5, 0.212),
+  0px -10px 10px rgb(255, 54, 54) inset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-#cancelQuiz:hover{
-    background-color: rgb(254, 5, 5);
+
+.Btn::before {
+  width: 70%;
+  height: 2px;
+  position: absolute;
+  background-color: rgba(250, 250, 250, 0.937);
+  content: "";
+  filter: blur(1px);
+  top: 7px;
+  border-radius: 50%;
 }
+
+.Btn::after {
+  width: 70%;
+  height: 2px;
+  position: absolute;
+  background-color: rgba(250, 250, 250, 0.137);
+  content: "";
+  filter: blur(1px);
+  bottom: 7px;
+  border-radius: 50%;
+}
+.Btn:hover {
+  animation: jello-horizontal 0.9s both;
+}
+
+@keyframes jello-horizontal {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
 .language-btn{
     text-align: center;
     padding-top: 10px;
@@ -48,7 +173,14 @@ body{
 }
 
 .quizContainer {
-  background-color: #fff;
+  background-color: #e5e5f7;
+  opacity: 1;
+  background-image: repeating-radial-gradient(
+      circle at 0 0,
+      transparent 0,
+      #e5e5f7 30px
+    ),
+    repeating-linear-gradient(#ffb5b58a, #ffb8b8);
   border-radius: 15px;
   height: 75vh; 
   margin: 20px 100px;
@@ -191,21 +323,123 @@ body{
   display: none;
 }
 
-#quizResult {
-  text-align: center;
-  margin-top: 50px;
-}
 
-#retryQuiz {
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
+/* Result */
+.notification {
+  opacity: 1;
+  border-radius: 15px;
+  height: 75vh; 
+  margin: 400px 800px;
+  width: 400px;
+  height: 150px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center; 
+  transform: scale(3.2);
   cursor: pointer;
 }
 
-#retryQuiz:hover {
-  background-color: #45a049;
+.icon {
+  height: 50px;
+  width: 50px;
+  border-radius: 30px;
+  background-color: rgb(236, 236, 236);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2px;
+}
+.icon:hover{
+  background: transparent;
+  border: 1px solid rgb(236, 236, 236);
+  border-radius: 30px;
+  cursor: pointer;
+  transform: scale(2.2);
+}
+
+
+.message-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  padding: 2px;
+  text-transform: uppercase;
+  color: black;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.message {
+  padding: 2px;
+  color: black;
+  font-size: 18px;
+}
+
+.gradient-border {
+  --borderSize: 3px;
+  position: relative;
+  border-radius: var(--borderSize);
+}
+
+.gradient-border:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderSize));
+  left: calc(-1 * var(--borderSize));
+  height: calc(100% + var(--borderSize) * 2);
+  width: calc(100% + var(--borderSize) * 2);
+  background: linear-gradient(75deg, #E50000, #FF8D00, #FFEE00, #008121, #004CFF, #760188);
+  border-radius: calc(2 * var(--borderSize));
+  z-index: -1;
+  animation: gradientAnimation 4s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+#retry{
+  margin-top: 10px;
+  margin-left: 10px;
+  background: rgba(182, 169, 169, 0.192);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+#retry:hover{
+  background: rgba(182, 169, 169, 0.192);
+  color: rgb(165, 73, 73);
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  box-shadow: 0 12px 16px 0 rgba(0,0, 
+  0,0.24), 0 17px 50px 0 rgba(
+      0,0,0,0.19);
 }
 

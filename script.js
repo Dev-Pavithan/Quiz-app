@@ -1,3 +1,5 @@
+
+
 // Question
 const questions = [
     {
@@ -317,6 +319,8 @@ const COLOR_CODES = {
     }
 };
 
+
+// Timer
 const TIME_LIMIT = 20;
 let timePassed = 0;
 let timeLeft = TIME_LIMIT;
@@ -419,3 +423,10 @@ function setCircleDasharray() {
 }
 
 
+// result Board.
+function showResult() {
+    const resultBoard = document.getElementById("quizResult");
+    const resultBoardText = document.getElementById("resultMessage");
+    const retryButton = document.getElementById("retry");
+
+}

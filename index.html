@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
     <div class="navbar">
-        <button id="cancelQuiz">Cancel Quiz</button>
+        <button class="Btn" id="cancelQuiz">Cancel Quiz</button>
     </div>
 
     <div class="language-btn" id="language-btn">
@@ -32,9 +33,16 @@
         </div>
     </div>
 
-    <div id="quizResult" class="quizResult hidden">
-        <p id="resultMessage"></p>
-        <button onclick="retryQuiz()">Retry</button>
+    <div class="notification gradient-border">
+        <div class="icon">
+            ❤️
+        </div>
+        <div class="message-container">
+            <div class="title">Congratulations!</div>
+            <div class="message">You've reached a new level !</div>
+            <button id="retry">Retry Quiz</button>
+
+        </div>
     </div>
 
     <script src="script.js"></script>
